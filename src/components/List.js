@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import ListItem from './ListItem'
 
 const List = () => {
 
@@ -18,7 +19,13 @@ const List = () => {
 
     return (
         <div>
-
+            {
+                data.map(item => {
+                    return (
+                        <ListItem key={item.id} character={item}/>
+                    )
+                })
+            }
         </div>
     )
 }
