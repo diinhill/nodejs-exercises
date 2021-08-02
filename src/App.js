@@ -1,5 +1,7 @@
-import List from './components/List';
-import './App.css';
+import List from './components/List'
+import React from 'react'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import './App.css'
 
 function App() {
 
@@ -7,14 +9,16 @@ function App() {
 
 
   return (
-
-    /*you'd call it JSX (it's both kind of html and js, but not)*/
-    <div className="App">
-      <hi>Rick&Morty</hi>
-      <List />
-   
-    </div>
-  );
+    <React.Fragment>
+      <CssBaseline/>
+        {
+        /*you'd call it JSX (it's both kind of html and js, but not)*/
+        <div className="App">
+          <List />
+        </div>
+        }
+    </React.Fragment>
+  )
 }
 
-export default App;
+export default App

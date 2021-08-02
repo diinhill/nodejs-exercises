@@ -20,6 +20,7 @@ const List = () => {
     return (
         <div>
             {
+                data && 
                 data.map(item => {
                     return (
                         <ListItem key={item.id} character={item}/>
