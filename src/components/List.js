@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import ListItem from './ListItem'
 import InputField from './InputField'
+import MyModal from './MyModal'
+import Card from './Card'
+
 
 
 const List = () => {
@@ -21,7 +24,7 @@ const List = () => {
         }
         getData()
     }, [])
-    // console.log('data:', data)
+    console.log('data:', data)
 
     const results = !name
     ? data
@@ -32,13 +35,13 @@ const List = () => {
 
     return (
         <div>
-            <InputField name={name} handleChange={handleChange}/>
+            <InputField name={name} handleChange={handleChange} />
             {
                 results &&
                 results.map(item => {
                     /* console.log('item.name:', item.name) */
                     return (
-                            <ListItem key={item.id} character={item}/>
+                            <ListItem key={item.id} character={item} />
                     )
                 })
             }
