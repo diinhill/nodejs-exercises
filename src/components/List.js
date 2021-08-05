@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import ListItem from './ListItem'
 import InputField from './InputField'
-import MyModal from './MyModal'
-import Card from './Card'
+import SimpleModal from './Modal'
+
 
 
 
@@ -10,6 +10,13 @@ const List = () => {
 
     const [data, setData] = useState()
     const [name, setName] = useState('')
+    const [open, setOpen] = useState(false)
+    const [isClicked, setIsClicked] = useState('')
+
+    console.log("isClicked:", isClicked)
+    console.log("open:", open)
+    
+   
     const handleChange = (event) => {
       /* console.log('event.target.value:', event.target.value) */
       setName(event.target.value)
@@ -32,6 +39,14 @@ const List = () => {
         person.name.toLowerCase().includes(name.toLocaleLowerCase()))
         console.log("hello: ",results)
 
+    const handleOpen = (id) => {
+        setIsClicked(results.find(clickedObj => clickedObj.id === id))
+        setOpen(true)
+    }
+            
+    const handleClose = () => {
+        setOpen(false)
+    }
 
     return (
         <div>
@@ -41,10 +56,15 @@ const List = () => {
                 results.map(item => {
                     /* console.log('item.name:', item.name) */
                     return (
-                            <ListItem key={item.id} character={item} />
+
+                        <div key={item.id}>
+                            <ListItem character={item} handleOpen={handleOpen} />
+                            {/* <SimpleModal character={item} open={open} handleClose={handleClose} /> */}
+                        </div>
                     )
                 })
             }
+            <SimpleModal character={isClicked} open={open} handleClose={handleClose} />
         </div>
     )
 }
