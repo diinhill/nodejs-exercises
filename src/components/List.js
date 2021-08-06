@@ -5,8 +5,7 @@ import SimpleModal from './Modal'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Pagination from '@material-ui/lab/Pagination'
-import { flexbox } from '@material-ui/system';
-import Box from '@material-ui/core/Box';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
